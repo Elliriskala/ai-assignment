@@ -4,10 +4,18 @@ import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
+import path from 'path';
+import fs from 'fs';
 
 import {notFound, errorHandler} from './middlewares';
 import api from './api';
 import {MessageResponse} from './types/MessageTypes';
+
+// Create uploads directory if it doesn't exist
+const uploadDir = path.join(__dirname, '../uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 const app = express();
 
