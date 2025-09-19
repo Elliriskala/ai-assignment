@@ -32,9 +32,7 @@
 
     "Create an image for ${prompt}. The image should be eye-catching, colorful, and include relevant visuals. Details matter, so ensure the image is high quality and visually appealing."
 
-### Syöte: 
-
-**Request:**
+### Request:
 
 ```json
 {
@@ -42,9 +40,8 @@
   "style": "vivid"
 }
 ```
-### Example answer:
 
-**Result:**
+### Result:
 
 ![cats-eating](uploads/thumbnail_1758285052221.png)
 ![cats-eating2](uploads/thumbnail_1758285664508.png)
@@ -55,9 +52,7 @@
 
     "Create an image for ${prompt}. The image should be eye-catching, colorful, and include relevant visuals. Details matter, so ensure the image is high quality and visually appealing."
 
-### Syöte: 
-
-**Request:**
+### Request:
 
 ```json
 {
@@ -65,9 +60,8 @@
   "style": "vivid"
 }
 ```
-### Example answer:
 
-**Result:**
+### Result:
 
 ![animals-having-fun](uploads/thumbnail_1758285514288.png)
 ![animals-having-fun2](uploads/thumbnail_1758285551026.png)
