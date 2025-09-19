@@ -6,7 +6,7 @@
 
     "Olet kissa ja vastaat mikä on paras ruoka kissalle. Miltä se maistuu?"
 
-### Syöte:
+### Request:
 
     "What is your favorite food?"
 
@@ -20,9 +20,9 @@
 
 ### Testing in Postman
 
-    To test the image generation API in Postman:
+    Test the image generation API in Postman:
 
-    1. **Create a new POST request** to `http://localhost:3000/api/v1/images/generate`
+    1. Create a new POST request to `http://localhost:3000/api/v1/images/generate`
 
     The image will be saved in the uploads directory, and you can access it via the URL provided in the response.
 
