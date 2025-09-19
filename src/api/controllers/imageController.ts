@@ -40,7 +40,7 @@ const generateImage = async (
     // Enhance the user prompt
     const enhancedPrompt = `Create an image for ${prompt}. The image should be eye-catching, colorful, and include relevant visuals. Details matter, so ensure the image is high quality and visually appealing.`;
 
-    if (!process.env.OPENAI_API_URL) { 
+    if (!process.env.OPENAI_API_URL) {
       next(new CustomError('Missing OpenAI API URL', 500));
       return;
     }
@@ -50,9 +50,9 @@ const generateImage = async (
       prompt: enhancedPrompt,
       n: 1,
       size: size,
-      model: "dall-e-3", 
+      model: 'dall-e-3',
       style: style,
-      response_format: "b64_json"
+      response_format: 'b64_json',
     };
 
     // Send request to OpenAI API
@@ -74,7 +74,7 @@ const generateImage = async (
     }
 
     const imageData = imageResponse.data[0].b64_json;
-    
+
     if (!imageData) {
       next(new CustomError('No image content received', 500));
       return;
@@ -95,51 +95,11 @@ const generateImage = async (
       message: 'Image generated successfully',
       filename: filename,
       filepath: filepath,
-      url: `/uploads/${filename}` // URL path for frontend access
+      url: `/uploads/${filename}`,
     });
   } catch (error) {
     next(error);
   }
 };
 
-/**
- * Create an image variation based on an existing image
- * API reference: https://platform.openai.com/docs/api-reference/images/createVariation
- */
-const createImageVariation = async (
-  req: Request<{}, {}, {image: string; n?: number; size?: string}>,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    // Not implemented in this version - would require file upload handling
-    res.status(501).json({ 
-      message: 'Image variation endpoint not yet implemented',
-      apiReference: 'https://platform.openai.com/docs/api-reference/images/createVariation'
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
-/**
- * Edit an existing image based on a prompt
- * API reference: https://platform.openai.com/docs/api-reference/images/createEdit
- */
-const editImage = async (
-  req: Request<{}, {}, {image: string; mask?: string; prompt: string; n?: number; size?: string}>,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    // Not implemented in this version - would require file upload handling
-    res.status(501).json({ 
-      message: 'Image edit endpoint not yet implemented',
-      apiReference: 'https://platform.openai.com/docs/api-reference/images/createEdit'
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
-export {generateImage, createImageVariation, editImage};
+export {generateImage};
